@@ -1,0 +1,41 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section SideBar
+{
+<div>
+	<h2>Menu</h2>
+</div>
+}
+
+
+<div>
+	<h2>Body area</h2>
+</div>
+
+
+<form data-bind='submit: search'>
+	<label>Find user:</label>
+	<input data-bind='value: name' />
+</form>
+
+@section ScriptFooter
+{
+<script type="text/javascript">
+$(function () {
+
+		function ViewModel() {
+		var self = this;
+		self.name = ko.observable("");
+		self.search = function () {
+			alert(self.name());
+	};
+
+	}
+
+	ko.applyBindings(new ViewModel());
+});
+</script>
+}
